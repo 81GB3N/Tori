@@ -1,0 +1,7 @@
+name: airbus
+channels:
+  - defaults
+dependencies:
+  - python
+  - numpy
+  - fastapi
