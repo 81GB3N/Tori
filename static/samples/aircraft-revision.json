@@ -1,0 +1,205 @@
+{
+  "metadata": {
+    "version": 4.6,
+    "type": "Object",
+    "generator": "Tori Diff Viewer"
+  },
+  "geometries": [
+    {
+      "uuid": "geom-fuselage-v2",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.52,
+      "radiusBottom": 0.68,
+      "height": 8.6,
+      "radialSegments": 24
+    },
+    {
+      "uuid": "geom-nose-v2",
+      "type": "ConeGeometry",
+      "radius": 0.52,
+      "height": 1.35,
+      "radialSegments": 24
+    },
+    {
+      "uuid": "geom-wing-v2",
+      "type": "BoxGeometry",
+      "width": 5.8,
+      "height": 0.16,
+      "depth": 1.9
+    },
+    {
+      "uuid": "geom-tailplane-v2",
+      "type": "BoxGeometry",
+      "width": 2.1,
+      "height": 0.1,
+      "depth": 0.85
+    },
+    {
+      "uuid": "geom-fin-v2",
+      "type": "BoxGeometry",
+      "width": 0.18,
+      "height": 1.2,
+      "depth": 0.82
+    },
+    {
+      "uuid": "geom-winglet",
+      "type": "BoxGeometry",
+      "width": 0.18,
+      "height": 0.7,
+      "depth": 0.5
+    },
+    {
+      "uuid": "geom-inlet",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.16,
+      "radiusBottom": 0.12,
+      "height": 0.55,
+      "radialSegments": 18
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "mat-body-v2",
+      "type": "MeshStandardMaterial",
+      "name": "Composite Body",
+      "color": 10459262,
+      "metalness": 0.26,
+      "roughness": 0.34
+    },
+    {
+      "uuid": "mat-wing-v2",
+      "type": "MeshStandardMaterial",
+      "name": "Lift Wing",
+      "color": 2618990,
+      "metalness": 0.15,
+      "roughness": 0.46
+    },
+    {
+      "uuid": "mat-detail-v2",
+      "type": "MeshStandardMaterial",
+      "name": "Detail Accent",
+      "color": 8836348,
+      "metalness": 0.22,
+      "roughness": 0.42
+    }
+  ],
+  "object": {
+    "uuid": "scene-aircraft-revision",
+    "type": "Scene",
+    "name": "Aircraft Revision B",
+    "background": 397330,
+    "children": [
+      {
+        "uuid": "mesh-fuselage-v2",
+        "type": "Mesh",
+        "name": "Fuselage",
+        "geometry": "geom-fuselage-v2",
+        "material": "mat-body-v2",
+        "rotation": [
+          0,
+          0,
+          1.5707963268
+        ],
+        "position": [
+          0.15,
+          0,
+          0
+        ]
+      },
+      {
+        "uuid": "mesh-nose-v2",
+        "type": "Mesh",
+        "name": "NoseCone",
+        "geometry": "geom-nose-v2",
+        "material": "mat-body-v2",
+        "rotation": [
+          0,
+          0,
+          -1.5707963268
+        ],
+        "position": [
+          4.95,
+          0,
+          0
+        ]
+      },
+      {
+        "uuid": "mesh-wing-v2",
+        "type": "Mesh",
+        "name": "MainWing",
+        "geometry": "geom-wing-v2",
+        "material": "mat-wing-v2",
+        "position": [
+          -0.05,
+          0.02,
+          0
+        ]
+      },
+      {
+        "uuid": "mesh-tailplane-v2",
+        "type": "Mesh",
+        "name": "Tailplane",
+        "geometry": "geom-tailplane-v2",
+        "material": "mat-detail-v2",
+        "position": [
+          -3.2,
+          0.26,
+          0
+        ]
+      },
+      {
+        "uuid": "mesh-fin-v2",
+        "type": "Mesh",
+        "name": "VerticalFin",
+        "geometry": "geom-fin-v2",
+        "material": "mat-detail-v2",
+        "position": [
+          -3.5,
+          0.7,
+          0
+        ]
+      },
+      {
+        "uuid": "mesh-winglet-left",
+        "type": "Mesh",
+        "name": "WingletLeft",
+        "geometry": "geom-winglet",
+        "material": "mat-wing-v2",
+        "position": [
+          -2.95,
+          0.42,
+          0.7
+        ]
+      },
+      {
+        "uuid": "mesh-winglet-right",
+        "type": "Mesh",
+        "name": "WingletRight",
+        "geometry": "geom-winglet",
+        "material": "mat-wing-v2",
+        "position": [
+          2.85,
+          0.42,
+          0.7
+        ]
+      },
+      {
+        "uuid": "mesh-inlet",
+        "type": "Mesh",
+        "name": "CoolingInlet",
+        "geometry": "geom-inlet",
+        "material": "mat-detail-v2",
+        "rotation": [
+          1.5707963268,
+          0,
+          0
+        ],
+        "position": [
+          1.2,
+          0.15,
+          0.62
+        ]
+      }
+    ]
+  }
+}

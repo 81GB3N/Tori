@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "version": 4.6,
+    "type": "Object",
+    "generator": "Tori Diff Viewer"
+  },
+  "geometries": [
+    {
+      "uuid": "geom-fuselage",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.55,
+      "radiusBottom": 0.7,
+      "height": 8.2,
+      "radialSegments": 20
+    },
+    {
+      "uuid": "geom-nose",
+      "type": "ConeGeometry",
+      "radius": 0.55,
+      "height": 1.2,
+      "radialSegments": 20
+    },
+    {
+      "uuid": "geom-wing",
+      "type": "BoxGeometry",
+      "width": 4.8,
+      "height": 0.18,
+      "depth": 1.6
+    },
+    {
+      "uuid": "geom-tailplane",
+      "type": "BoxGeometry",
+      "width": 1.9,
+      "height": 0.1,
+      "depth": 0.75
+    },
+    {
+      "uuid": "geom-fin",
+      "type": "BoxGeometry",
+      "width": 0.18,
+      "height": 1.1,
+      "depth": 0.75
+    },
+    {
+      "uuid": "geom-pod",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.18,
+      "radiusBottom": 0.18,
+      "height": 1.1,
+      "radialSegments": 14
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "mat-body",
+      "type": "MeshStandardMaterial",
+      "name": "Aluminium Body",
+      "color": 11186431,
+      "metalness": 0.42,
+      "roughness": 0.48
+    },
+    {
+      "uuid": "mat-wing",
+      "type": "MeshStandardMaterial",
+      "name": "Composite Wing",
+      "color": 4045862,
+      "metalness": 0.18,
+      "roughness": 0.56
+    },
+    {
+      "uuid": "mat-detail",
+      "type": "MeshStandardMaterial",
+      "name": "Detail Accent",
+      "color": 7353599,
+      "metalness": 0.24,
+      "roughness": 0.5
+    }
+  ],
+  "object": {
+    "uuid": "scene-aircraft-baseline",
+    "type": "Scene",
+    "name": "Aircraft Baseline",
+    "background": 397330,
+    "children": [
+      {
+        "uuid": "mesh-fuselage",
+        "type": "Mesh",
+        "name": "Fuselage",
+        "geometry": "geom-fuselage",
+        "material": "mat-body",
+        "rotation": [
+          0,
+          0,
+          1.5707963268
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "uuid": "mesh-nose",
+        "type": "Mesh",
+        "name": "NoseCone",
+        "geometry": "geom-nose",
+        "material": "mat-body",
+        "rotation": [
+          0,
+          0,
+          -1.5707963268
+        ],
+        "position": [
+          4.6,
+          0,
+          0
+        ]
+      },
+      {
+        "uuid": "mesh-wing",
+        "type": "Mesh",
+        "name": "MainWing",
+        "geometry": "geom-wing",
+        "material": "mat-wing",
+        "position": [
+          -0.25,
+          0,
+          0
+        ]
+      },
+      {
+        "uuid": "mesh-tailplane",
+        "type": "Mesh",
+        "name": "Tailplane",
+        "geometry": "geom-tailplane",
+        "material": "mat-detail",
+        "position": [
+          -3.1,
+          0.2,
+          0
+        ]
+      },
+      {
+        "uuid": "mesh-fin",
+        "type": "Mesh",
+        "name": "VerticalFin",
+        "geometry": "geom-fin",
+        "material": "mat-detail",
+        "position": [
+          -3.45,
+          0.6,
+          0
+        ]
+      },
+      {
+        "uuid": "mesh-pod",
+        "type": "Mesh",
+        "name": "SensorPod",
+        "geometry": "geom-pod",
+        "material": "mat-detail",
+        "rotation": [
+          0,
+          0,
+          1.5707963268
+        ],
+        "position": [
+          0.1,
+          -0.55,
+          0
+        ]
+      }
+    ]
+  }
+}

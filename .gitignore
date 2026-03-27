@@ -1,5 +1,4 @@
-__pycache__
-.direnv
-.mamba
-.envrc
-shell.nix
+.venv/
+storage/
+tmp_probe/
+__pycache__/

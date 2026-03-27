@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tori 3D Diff Viewer</title>
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Tori Prototype</p>
+          <h1>Three.js CAD Diff Viewer</h1>
+          <p class="hero-text">
+            Compare two Three.js JSON scene exports in the browser, inspect
+            added and removed geometry, and review structural changes without
+            leaving the web app.
+          </p>
+        </div>
+
+        <div class="control-card">
+          <div class="control-grid">
+            <label class="file-field">
+              <span>Original model</span>
+              <input id="base-file" type="file" accept=".json,.step,.stp" />
+            </label>
+
+            <label class="file-field">
+              <span>Changed model</span>
+              <input id="revision-file" type="file" accept=".json,.step,.stp" />
+            </label>
+          </div>
+
+          <div class="button-row">
+            <button id="load-demo" class="primary">Load demo aircraft diff</button>
+            <button id="swap-models" class="secondary">Swap revisions</button>
+          </div>
+
+          <p class="helper-text">
+            Supported input: Three.js JSON scene exports and STEP files
+            (<code>.step</code>, <code>.stp</code>). STEP conversion now runs
+            on the backend before the viewer loads the generated asset.
+          </p>
+        </div>
+      </header>
+
+      <section class="stats-grid" aria-label="diff summary">
+        <article class="stat-card">
+          <span class="stat-label">Added</span>
+          <strong id="count-added">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Removed</span>
+          <strong id="count-removed">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Modified</span>
+          <strong id="count-modified">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Unchanged</span>
+          <strong id="count-unchanged">0</strong>
+        </article>
+        <article class="stat-card wide">
+          <span class="stat-label">Revision delta</span>
+          <strong id="geometry-delta">0 meshes / 0 verts</strong>
+        </article>
+      </section>
+
+      <section class="legend">
+        <span><i class="swatch added"></i>Added</span>
+        <span><i class="swatch removed"></i>Removed</span>
+        <span><i class="swatch modified"></i>Modified</span>
+        <span><i class="swatch unchanged"></i>Context</span>
+      </section>
+
+      <section class="viewer-grid" aria-label="3D comparison views">
+        <article class="viewer-card">
+          <div class="viewer-header">
+            <h2>Original</h2>
+            <p id="base-name">Waiting for model</p>
+          </div>
+          <div class="canvas-frame">
+            <canvas id="base-canvas"></canvas>
+          </div>
+        </article>
+
+        <article class="viewer-card">
+          <div class="viewer-header">
+            <h2>Changed</h2>
+            <p id="revision-name">Waiting for model</p>
+          </div>
+          <div class="canvas-frame">
+            <canvas id="revision-canvas"></canvas>
+          </div>
+        </article>
+
+        <article class="viewer-card focus">
+          <div class="viewer-header">
+            <h2>Diff</h2>
+            <p id="diff-name">Overlay of both revisions</p>
+          </div>
+          <div class="canvas-frame">
+            <canvas id="diff-canvas"></canvas>
+          </div>
+        </article>
+      </section>
+
+      <section class="detail-grid">
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Change Log</h2>
+            <p>Renderable nodes are matched by hierarchy path and object name.</p>
+          </div>
+          <div id="change-list" class="change-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>How It Works</h2>
+            <p>Built for review sessions between engineering and management.</p>
+          </div>
+          <ul class="info-list">
+            <li>The left and right views show the original scene materials.</li>
+            <li>The center view highlights additions, removals, and modifications.</li>
+            <li>Camera movement is synchronized, so orbiting one panel updates all three.</li>
+            <li>Geometry, transform, and material changes are surfaced in the audit list.</li>
+          </ul>
+        </article>
+      </section>
+
+      <footer class="footer-note">
+        Continuous version review for CAD should feel more like Git than file
+        archaeology.
+      </footer>
+    </div>
+
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>
