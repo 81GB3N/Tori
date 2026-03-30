@@ -2,3 +2,6 @@
 storage/
 tmp_probe/
 __pycache__/
+.tori-fusion-artifacts/
+.tori-fusion-bridge/
+.tori-fusion-logs/

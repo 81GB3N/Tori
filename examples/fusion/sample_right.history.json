@@ -1,0 +1,34 @@
+{
+  "feature_hints": {
+    "extrude": true,
+    "sketch": true
+  },
+  "fusion_history": {
+    "extrudes": [
+      {
+        "direction": "positive",
+        "distance_expression": "20 mm",
+        "distance_param": "depth",
+        "name": "Extrude1",
+        "operation": "new_body"
+      }
+    ],
+    "parameters": [
+      {
+        "expression": "20 mm",
+        "name": "depth"
+      }
+    ],
+    "sketches": [
+      {
+        "height_expression": "10 mm",
+        "height_param": "height",
+        "name": "Sketch1",
+        "type": "origin_rectangle",
+        "width_expression": "10 mm",
+        "width_param": "width"
+      }
+    ]
+  },
+  "step_path": "/tmp/right.step"
+}

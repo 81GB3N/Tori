@@ -1,0 +1,13 @@
+{
+  "autodeskProduct": "Fusion360",
+  "type": "addin",
+  "id": "4ef9d0a4-233d-4c70-a0fd-628e986db2c1",
+  "author": "OpenAI Codex",
+  "description": {
+    "": "Queue-based bridge for exporting STEP plus history sidecars and rough .f3d rehydration."
+  },
+  "version": "0.1.0",
+  "runOnStartup": true,
+  "supportedOS": "windows|mac",
+  "editEnabled": true
+}
